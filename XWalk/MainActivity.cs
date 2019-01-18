@@ -42,7 +42,6 @@ namespace XWalk
             this.AddContentView(view, new ViewGroup.LayoutParams(mp, mp));
             xwv.SetResourceClient(new XWalkResourceClient(xwv));
             xwv.SetUIClient(new XWalkUIClient(xwv));
-            xwv.AddJavascriptInterface(new Foo(this, xwv), "Foo");
             xwv.LoadUrl("file:///android_asset/index.html");
 
         }
