@@ -124,13 +124,14 @@ According to the [Crosswalk Documentation](https://crosswalk-project.org/documen
 
 If you want to access Hardware components, you have to add the permission accordingly to your `AndroidManifest.xml` file.
 
-## Authors
 
-* **Kevin Gliewe** - [KevinGliewe](https://github.com/KevinGliewe)
 
 ## Inspiration
 
 I took a lot of inspiration from the [Xamarin.CrossWalk](https://github.com/Youscribe/Xamarin.CrossWalk) Project from [kYann](https://github.com/kYann).
+
+and * **Kevin Gliewe** - [KevinGliewe](https://github.com/KevinGliewe)
+
 Thank you for your Work.
 
 ## License
