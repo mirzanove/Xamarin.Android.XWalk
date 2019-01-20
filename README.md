@@ -110,8 +110,15 @@ public class MainActivity : Activity, XWalkInitializer.IXWalkInitListener, XWalk
 	
 	}
 ```	
-	
 
+
+sometimes the visual studio c# sentence does not detect crosswalk libaray what you should do is just check or uncheck : 
+
+define debug constant.. 
+define trace constant.. 
+
+in both project after you build the solution and it should work and detect...
+	
 ## Permissions
 
 According to the [Crosswalk Documentation](https://crosswalk-project.org/documentation/android/embedding_crosswalk.html), the minimal Permissions required to run are:
