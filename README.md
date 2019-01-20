@@ -10,40 +10,107 @@ The XWalk.Binding contains the Bindings to the Android Library and the Library (
 
 An Example how to use the `Org.Xwalk.Core.XWalkView`:
 
-```Java
-using Android.App;
-using Android.Widget;
-using Android.OS;
-using Android.Views;
-
-namespace XWalk
-{
-    [Activity(Label = "XWalk", MainLauncher = true)]
-    public class MainActivity : Org.Xwalk.Core.XWalkActivity
+public class MainActivity : Activity, XWalkInitializer.IXWalkInitListener, XWalkUpdater.IXWalkUpdateListener
     {
+
+        private XWalkInitializer mXWalkInitializer;
+        private XWalkUpdater mXWalkUpdater;
+
+        private Org.Xwalk.Core.XWalkView xwv;
+
+        public void OnXWalkInitCancelled()
+        {
+            Finish();
+            //throw new NotImplementedException();
+        }
+
+        public void OnXWalkInitCompleted()
+        {
+            if (mXWalkUpdater != null)
+            {
+                mXWalkUpdater.DismissDialog();
+            }
+            xwv.Load("file:///android_asset/index.html", null);
+
+            //throw new NotImplementedException();
+        }
+
+        public void OnXWalkInitFailed()
+        {
+            if (mXWalkUpdater == null)
+            {
+                mXWalkUpdater = new XWalkUpdater(this, this);
+            }
+            mXWalkUpdater.UpdateXWalkRuntime();
+
+            //throw new NotImplementedException();
+        }
+
+        public void OnXWalkInitStarted()
+        {
+            //throw new NotImplementedException();
+        }
+
+        public void OnXWalkUpdateCancelled()
+        {
+            Finish();
+            //throw new NotImplementedException();
+        }
+
         protected override void OnCreate(Bundle savedInstanceState)
         {
             base.OnCreate(savedInstanceState);
 
-            // Set our view from the "main" layout resource
+            mXWalkInitializer = new XWalkInitializer(this, this);
+            mXWalkInitializer.InitAsync();
+
             SetContentView(Resource.Layout.Main);
+
+            xwv = (Org.Xwalk.Core.XWalkView)FindViewById(Resource.Id.xwalkview);
+
         }
 
-        protected override void OnXWalkReady()
+        protected override void OnResume()
         {
-			var view = new RelativeLayout(this.BaseContext);
-			var mp = ViewGroup.LayoutParams.MatchParent;
-			var xwv = new Org.Xwalk.Core.XWalkView(this.BaseContext, this);
-			view.AddView(xwv);
-			this.AddContentView(view, new ViewGroup.LayoutParams(mp, mp));
-
-			xwv.Load("https://jeromeetienne.github.io/AR.js/three.js/examples/mobile-performance.html", null);
+            base.OnResume();
+            mXWalkInitializer.InitAsync();
         }
-    }
-}
-```
+		
+		
 
-This embeds a Crosswalk View into an Activity and navigates to the [AR.JS](https://github.com/jeromeetienne/AR.js) example which uses the WebRTC API to access the Camera. So you should add the `android.permission.CAMERA` permission to your `AndroidManifest.xml` file to run this example.
+
+    }
+
+	
+	or :
+	
+	public class MainActivity : XWalkActivity{
+	
+    private Org.Xwalk.Core.XWalkView xwv;
+	
+	protected override void OnCreate(Bundle savedInstanceState)
+        {
+            base.OnCreate(savedInstanceState);
+
+            mXWalkInitializer = new XWalkInitializer(this, this);
+            mXWalkInitializer.InitAsync();
+
+            SetContentView(Resource.Layout.Main);
+
+            xwv = (Org.Xwalk.Core.XWalkView)FindViewById(Resource.Id.xwalkview);
+
+        }
+		
+		protected override void OnXWalkReady()
+        {
+           
+            xwv.LoadUrl("file:///android_asset/index.html");
+
+        }
+	
+	}
+	
+	
 
 ## Permissions
 
