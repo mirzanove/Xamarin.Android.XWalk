@@ -1,0 +1,12 @@
+C:\Users\mirza\Downloads\complete3\Xamarin.Android.XWalk-master\XWalk\obj\Debug\90\android\assets\XWalk.dll
+C:\Users\mirza\Downloads\complete3\Xamarin.Android.XWalk-master\XWalk\obj\Debug\90\android\assets\Java.Interop.dll
+C:\Users\mirza\Downloads\complete3\Xamarin.Android.XWalk-master\XWalk\obj\Debug\90\android\assets\Mono.Android.dll
+C:\Users\mirza\Downloads\complete3\Xamarin.Android.XWalk-master\XWalk\obj\Debug\90\android\assets\mscorlib.dll
+C:\Users\mirza\Downloads\complete3\Xamarin.Android.XWalk-master\XWalk\obj\Debug\90\android\assets\System.Core.dll
+C:\Users\mirza\Downloads\complete3\Xamarin.Android.XWalk-master\XWalk\obj\Debug\90\android\assets\System.dll
+C:\Users\mirza\Downloads\complete3\Xamarin.Android.XWalk-master\XWalk\obj\Debug\90\android\assets\System.Xml.dll
+C:\Users\mirza\Downloads\complete3\Xamarin.Android.XWalk-master\XWalk\obj\Debug\90\android\assets\XWalk.Binding.dll
+C:\Users\mirza\Downloads\complete3\Xamarin.Android.XWalk-master\XWalk\obj\Debug\90\android\assets\System.Net.Http.dll
+C:\Users\mirza\Downloads\complete3\Xamarin.Android.XWalk-master\XWalk\obj\Debug\90\android\assets\System.Runtime.Serialization.dll
+C:\Users\mirza\Downloads\complete3\Xamarin.Android.XWalk-master\XWalk\obj\Debug\90\android\assets\System.ServiceModel.Internals.dll
+C:\Users\mirza\Downloads\complete3\Xamarin.Android.XWalk-master\XWalk\obj\Debug\90\android\assets\Mono.Security.dll
