@@ -1,2 +1,0 @@
-android.app.Application
-gl.kev.xam.xwalk.xwalk
