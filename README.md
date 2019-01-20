@@ -9,7 +9,7 @@ The XWalk.Binding contains the Bindings to the Android Library and the Library (
 ### Usage
 
 An Example how to use the `Org.Xwalk.Core.XWalkView`:
-
+```Java
 public class MainActivity : Activity, XWalkInitializer.IXWalkInitListener, XWalkUpdater.IXWalkUpdateListener
     {
 
@@ -109,7 +109,7 @@ public class MainActivity : Activity, XWalkInitializer.IXWalkInitListener, XWalk
         }
 	
 	}
-	
+```	
 	
 
 ## Permissions
