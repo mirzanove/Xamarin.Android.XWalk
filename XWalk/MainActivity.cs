@@ -81,7 +81,7 @@ namespace XWalk
 
             SetContentView(Resource.Layout.Main);
 
-            xwv.SetWebChromeClient(new WebChromeClient());
+           // xwv.SetWebChromeClient(new WebChromeClient());
            // xwv.SetWebViewClient(new SampleWebViewClient(xwv));
             xwv.SetResourceClient(new SampleXWalkWebViewClient(xwv));
 
