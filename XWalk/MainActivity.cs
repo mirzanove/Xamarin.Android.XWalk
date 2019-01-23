@@ -82,9 +82,14 @@ namespace XWalk
             SetContentView(Resource.Layout.Main);
 
             xwv.SetWebChromeClient(new WebChromeClient());
-            xwv.SetWebViewClient(new SampleWebViewClient(xwv));
+           // xwv.SetWebViewClient(new SampleWebViewClient(xwv));
+            xwv.SetResourceClient(new SampleXWalkWebViewClient(xwv));
+
+           
 
             xwv = (Org.Xwalk.Core.XWalkView)FindViewById(Resource.Id.xwalkview);
+
+
 
 
 
@@ -103,7 +108,7 @@ namespace XWalk
     }
 
 
-    public class SampleWebViewClient : WebViewClient
+   /* public class SampleWebViewClient : WebViewClient
     {
         WebView webView;
         public SampleWebViewClient(WebView view)
@@ -139,6 +144,46 @@ namespace XWalk
 
         }
 
+    }*/
+
+
+    public class SampleXWalkWebViewClient : Org.Xwalk.Core.XWalkResourceClient
+    {
+        public Org.Xwalk.Core.XWalkView xWalkView;
+        public SampleXWalkWebViewClient(XWalkView view) : base(view)
+        {
+            this.xWalkView = view;
+          
+        }
+
+        public override bool ShouldOverrideUrlLoading(Org.Xwalk.Core.XWalkView view, string url)
+        {
+
+            String temp = url.ToString();
+
+            if (temp.Contains("android_asset"))
+            {
+
+            }
+            if (url.Contains("android_asset"))
+            {
+
+                return false;
+            }
+            else
+            {
+                view.Context.StartActivity(
+                        new Intent(Intent.ActionView, Android.Net.Uri.Parse(url)));
+                return true;
+            }
+        }
+
+        public override void OnLoadFinished(XWalkView view, String url)
+        {
+            base.OnLoadFinished(view, url);
+         
+
+        }
     }
 }
 
