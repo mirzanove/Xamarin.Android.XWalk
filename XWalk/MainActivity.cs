@@ -10,6 +10,9 @@ using System.IO;
 using Android.Content.Res;
 using Org.Xwalk.Core;
 
+using Android.Webkit;
+using Android.Graphics;
+
 namespace XWalk
 {
     [Activity(Label = "XWalk", MainLauncher = true)]
@@ -78,6 +81,9 @@ namespace XWalk
 
             SetContentView(Resource.Layout.Main);
 
+            xwv.SetWebChromeClient(new WebChromeClient());
+            xwv.SetWebViewClient(new SampleWebViewClient(xwv));
+
             xwv = (Org.Xwalk.Core.XWalkView)FindViewById(Resource.Id.xwalkview);
 
 
@@ -93,6 +99,45 @@ namespace XWalk
             mXWalkInitializer.InitAsync();
         }
 
+
+    }
+
+
+    public class SampleWebViewClient : WebViewClient
+    {
+        WebView webView;
+        public SampleWebViewClient(WebView view)
+        {
+            this.webView = view;
+        }
+        public override bool ShouldOverrideUrlLoading(WebView view, string url)
+        {
+
+            String temp = url.ToString();
+
+            if (temp.Contains("android_asset"))
+            {
+
+            }
+            if (url.Contains("android_asset"))
+            {
+
+                return false;
+            }
+            else
+            {
+                view.Context.StartActivity(
+                        new Intent(Intent.ActionView, Android.Net.Uri.Parse(url)));
+                return true;
+            }
+        }
+
+        public override void OnPageStarted(WebView view, String url, Bitmap favicon)
+        {
+            base.OnPageStarted(view, url, favicon);
+
+
+        }
 
     }
 }
